@@ -2,9 +2,9 @@
 Databases Applied 2
 applied2_student.sql
 
-student id:
-student name:
-last modified date:
+student id: 33402973
+student name: Tan Chun Ling
+last modified date: 6 March 2024
 
 */
 
