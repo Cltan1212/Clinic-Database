@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4E23570C-5F1A-4317-AE62-A0963AF91D9A" name="CUSTOMER">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-07 07:09:21 UTC</createdTime>
+<ownerDesignName>custorders_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="cust_no" id="899A1448-415F-4034-0193-EBABBE0F3F2A">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-07 07:09:43 UTC</createdTime>
+<ownerDesignName>custorders_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,7,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cust_name" id="7DBBB795-136A-214A-9BF9-C7AEE6E52B24">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-07 07:10:24 UTC</createdTime>
+<ownerDesignName>custorders_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cust_address" id="E49AE33C-EE97-E0B7-8967-9911F0ABF5D5">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-07 07:10:49 UTC</createdTime>
+<ownerDesignName>custorders_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cust_phone" id="EEFD418D-2844-A643-0D8F-5588C8E5D695">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-07 07:11:03 UTC</createdTime>
+<ownerDesignName>custorders_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="7F3B260C-0DB6-DE11-DF17-5A4A8AFD545E" name="CUSTOMER PK">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-07 07:10:18 UTC</createdTime>
+<ownerDesignName>custorders_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>899A1448-415F-4034-0193-EBABBE0F3F2A</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
