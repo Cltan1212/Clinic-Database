@@ -1,0 +1,164 @@
+SQL> --student id: 33402973
+SQL> --student name: Tan Chun Ling
+SQL> DROP TABLE customer CASCADE CONSTRAINTS;
+
+TABLE dropped.
+
+SQL> DROP TABLE orderline CASCADE CONSTRAINTS;
+
+TABLE dropped.
+
+SQL> DROP TABLE orders CASCADE CONSTRAINTS;
+
+TABLE dropped.
+
+SQL> DROP TABLE prod_category CASCADE CONSTRAINTS;
+
+TABLE dropped.
+
+SQL> DROP TABLE product CASCADE CONSTRAINTS;
+
+TABLE dropped.
+
+SQL> -- predefined type, no DDL - MDSYS.SDO_GEOMETRY
+SQL> -- predefined type, no DDL - XMLTYPE
+SQL> CREATE TABLE customer (
+  2      cust_no      NUMBER(7) NOT NULL,
+  3      cust_name    VARCHAR2(50) NOT NULL,
+  4      cust_address VARCHAR2(50) NOT NULL,
+  5      cust_phone   CHAR(10),
+  6      cust_level   CHAR(1) NOT NULL
+  7  );
+
+TABLE created.
+
+SQL> ALTER TABLE customer
+  2      ADD CONSTRAINT chk_custlevel CHECK ( cust_level IN ( 'B', 'G', 'S' ) );
+
+TABLE altered.
+
+SQL> COMMENT ON COLUMN customer.cust_no IS
+  2      'customer number';
+Comment created.
+
+SQL> COMMENT ON COLUMN customer.cust_name IS
+  2      'customer name';
+Comment created.
+
+SQL> COMMENT ON COLUMN customer.cust_address IS
+  2      'customer address';
+Comment created.
+
+SQL> COMMENT ON COLUMN customer.cust_phone IS
+  2      'customer phone number';
+Comment created.
+
+SQL> COMMENT ON COLUMN customer.cust_level IS
+  2      'customer level, G-Gold, S-Silver, B-Bronze';
+Comment created.
+
+SQL> ALTER TABLE customer ADD CONSTRAINT customer_pk PRIMARY KEY ( cust_no );
+
+TABLE altered.
+
+SQL> CREATE TABLE orderline (
+  2      order_no      NUMBER(7) NOT NULL,
+  3      prod_no       NUMBER(7) NOT NULL,
+  4      ol_qtyordered NUMBER(3) NOT NULL,
+  5      ol_lineprice  NUMBER(8, 2) NOT NULL
+  6  );
+
+TABLE created.
+
+SQL> COMMENT ON COLUMN orderline.prod_no IS
+  2      'is_used_to';
+Comment created.
+
+SQL> ALTER TABLE orderline ADD CONSTRAINT oderline_pk PRIMARY KEY ( order_no,
+  2                                                                 prod_no );
+
+TABLE altered.
+
+SQL> CREATE TABLE orders (
+  2      order_no   NUMBER(7) NOT NULL,
+  3      order_date DATE NOT NULL,
+  4      cust_no    NUMBER(7) NOT NULL
+  5  );
+
+TABLE created.
+
+SQL> COMMENT ON COLUMN orders.cust_no IS
+  2      'customer number';
+Comment created.
+
+SQL> ALTER TABLE orders ADD CONSTRAINT orders_pk PRIMARY KEY ( order_no );
+
+TABLE altered.
+
+SQL> CREATE TABLE prod_category (
+  2      pcat_id   NUMBER(4) NOT NULL,
+  3      pcat_name VARCHAR2(50) NOT NULL
+  4  );
+
+TABLE created.
+
+SQL> COMMENT ON COLUMN prod_category.pcat_id IS
+  2      'product category id';
+Comment created.
+
+SQL> COMMENT ON COLUMN prod_category.pcat_name IS
+  2      'product category name';
+Comment created.
+
+SQL> ALTER TABLE prod_category ADD CONSTRAINT prod_category_pk PRIMARY KEY ( pcat_id );
+
+TABLE altered.
+
+SQL> CREATE TABLE product (
+  2      prod_no        NUMBER(7) NOT NULL,
+  3      prod_desc      VARCHAR2(50) NOT NULL,
+  4      prod_unitprice NUMBER(7, 2) NOT NULL,
+  5      prod_category  VARCHAR2(50) NOT NULL,
+  6      pcat_id        NUMBER(4) NOT NULL
+  7  );
+
+TABLE created.
+
+SQL> COMMENT ON COLUMN product.prod_no IS
+  2      'is_used_to';
+Comment created.
+
+SQL> COMMENT ON COLUMN product.pcat_id IS
+  2      'product category id';
+Comment created.
+
+SQL> ALTER TABLE product ADD CONSTRAINT product_pk PRIMARY KEY ( prod_no );
+
+TABLE altered.
+
+SQL> ALTER TABLE orders
+  2      ADD CONSTRAINT customer_orders FOREIGN KEY ( cust_no )
+  3          REFERENCES customer ( cust_no );
+
+TABLE altered.
+
+SQL> ALTER TABLE orderline
+  2      ADD CONSTRAINT orders_orderline FOREIGN KEY ( order_no )
+  3          REFERENCES orders ( order_no );
+
+TABLE altered.
+
+SQL> ALTER TABLE product
+  2      ADD CONSTRAINT prod_category FOREIGN KEY ( pcat_id )
+  3          REFERENCES prod_category ( pcat_id );
+
+TABLE altered.
+
+SQL> ALTER TABLE orderline
+  2      ADD CONSTRAINT product_orderline FOREIGN KEY ( prod_no )
+  3          REFERENCES product ( prod_no );
+
+TABLE altered.
+
+SQL> SPOOL off
+

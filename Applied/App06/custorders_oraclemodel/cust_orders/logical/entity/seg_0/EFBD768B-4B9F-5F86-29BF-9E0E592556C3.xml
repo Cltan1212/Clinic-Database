@@ -1,0 +1,99 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="EFBD768B-4B9F-5F86-29BF-9E0E592556C3" name="PRODUCT">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-07 07:24:38 UTC</createdTime>
+<ownerDesignName>cust_orders</ownerDesignName>
+<engineerTo>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="prod_no" id="7440F916-11C7-D1C8-B405-709DE0E839C6">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-07 07:24:46 UTC</createdTime>
+<commentInRDBMS><![CDATA[is_used_to]]></commentInRDBMS>
+<ownerDesignName>cust_orders</ownerDesignName>
+<engineerTo>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,7,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prod_desc" id="2C474809-74EC-4104-D116-BAB0EB10DDD2">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-07 07:24:57 UTC</createdTime>
+<ownerDesignName>cust_orders</ownerDesignName>
+<engineerTo>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prod_unitprice" id="34FB7FCC-F731-468D-8140-2CD567C94F85">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-07 07:25:16 UTC</createdTime>
+<ownerDesignName>cust_orders</ownerDesignName>
+<engineerTo>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prod_category" id="EAF1176C-60D1-73F3-C70E-94977BE620E2">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-07 07:25:30 UTC</createdTime>
+<ownerDesignName>cust_orders</ownerDesignName>
+<engineerTo>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="pcat_id" id="232CD986-1CEC-63F0-3632-B1086BA4CD2C">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-08 23:44:36 UTC</createdTime>
+<commentInRDBMS><![CDATA[product category id]]></commentInRDBMS>
+<generatorID>04C65E4C-84F8-726F-2363-33B971C2A601</generatorID>
+<ownerDesignName>cust_orders</ownerDesignName>
+<engineerTo>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+</engineerTo>
+<referedAttribute>EE3AED9D-DB18-E913-85EA-687FBE4E2248</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,7,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="DC33D9BC-CEFF-DC0B-FEF7-7154F98DB7AF" name="PRODUCT PK">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-07 07:24:56 UTC</createdTime>
+<ownerDesignName>cust_orders</ownerDesignName>
+<engineerTo>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>7440F916-11C7-D1C8-B405-709DE0E839C6</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
