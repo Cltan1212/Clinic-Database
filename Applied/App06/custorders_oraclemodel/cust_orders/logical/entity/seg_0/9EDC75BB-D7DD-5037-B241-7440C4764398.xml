@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9EDC75BB-D7DD-5037-B241-7440C4764398" name="ODERLINE">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9EDC75BB-D7DD-5037-B241-7440C4764398" name="ORDERLINE">
 <createdBy>chunlingtan</createdBy>
 <createdTime>2024-04-07 07:22:21 UTC</createdTime>
 <ownerDesignName>cust_orders</ownerDesignName>
@@ -28,7 +28,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>7</dataTypePrecision>
-<ownDataTypeParameters>,7,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="prod_no" id="BA83D2DF-3945-2028-8E1C-0E400FA6E889">
 <createdBy>chunlingtan</createdBy>
@@ -44,7 +44,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>7</dataTypePrecision>
-<ownDataTypeParameters>,7,</ownDataTypeParameters>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="ol_qtyordered" id="3E7651CC-162E-0324-C1D1-FEE467DC202F">
 <createdBy>chunlingtan</createdBy>
@@ -56,7 +56,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypePrecision>3</dataTypePrecision>
+<ownDataTypeParameters>,3,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="ol_lineprice" id="C2ACAEA9-2F44-19E3-A7A4-40044FD70564">
 <createdBy>chunlingtan</createdBy>
@@ -68,21 +69,48 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,8,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ol_id" id="37F78C38-0041-A1D2-4F2D-CC95570F0C99">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-09 05:28:01 UTC</createdTime>
+<ownerDesignName>cust_orders</ownerDesignName>
+<engineerTo>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="70634A27-42B4-8C53-E9E5-19D76BCA2846" name="ODERLINE PK">
+<identifier id="3967D720-8656-095A-46B7-D9BB3202636B" name="orderlin nk">
 <createdBy>chunlingtan</createdBy>
-<createdTime>2024-04-07 07:23:10 UTC</createdTime>
+<createdTime>2024-04-09 05:25:23 UTC</createdTime>
+<ownerDesignName>cust_orders</ownerDesignName>
+<engineerTo>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+</engineerTo>
+<newElementsIDs>BA83D2DF-3945-2028-8E1C-0E400FA6E889,7CF8CB36-4C85-0D41-7F3F-D9CC22D2DD75</newElementsIDs>
+<usedAttributes>
+<attributeRef>BA83D2DF-3945-2028-8E1C-0E400FA6E889</attributeRef>
+<attributeRef>7CF8CB36-4C85-0D41-7F3F-D9CC22D2DD75</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="53E2376A-E9F5-72D6-A7CE-56471E6A23AC" name="ORDERLINE PK">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-09 05:28:11 UTC</createdTime>
 <ownerDesignName>cust_orders</ownerDesignName>
 <engineerTo>
 <item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>7CF8CB36-4C85-0D41-7F3F-D9CC22D2DD75</attributeRef>
-<attributeRef>BA83D2DF-3945-2028-8E1C-0E400FA6E889</attributeRef>
+<attributeRef>37F78C38-0041-A1D2-4F2D-CC95570F0C99</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

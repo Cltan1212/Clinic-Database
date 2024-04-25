@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F4F68D9A-904A-FFEB-7314-05AA12916453" name="CUSTOMER">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-24 13:15:18 UTC</createdTime>
+<ownerDesignName>property_rental</ownerDesignName>
+<engineerTo>
+<item key="B3C16AC7-AC7F-4114-AE56-993464868073" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="owner_no" id="6A12C4F3-8BB8-93FA-8EBD-0B4372003864">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-24 13:28:11 UTC</createdTime>
+<commentInRDBMS><![CDATA[Unique identifier for owner ]]></commentInRDBMS>
+<ownerDesignName>property_rental</ownerDesignName>
+<engineerTo>
+<item key="B3C16AC7-AC7F-4114-AE56-993464868073" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="owner_title" id="5E5752BC-94A0-D754-540E-1AAF3A85E295">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-24 13:30:19 UTC</createdTime>
+<commentInRDBMS><![CDATA[Title of property owner]]></commentInRDBMS>
+<ownerDesignName>property_rental</ownerDesignName>
+<engineerTo>
+<item key="B3C16AC7-AC7F-4114-AE56-993464868073" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="owner_givname" id="48B7BAEF-C942-826A-F484-BBE6E5818BB0">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-24 13:30:54 UTC</createdTime>
+<commentInRDBMS><![CDATA[Given name of property owner]]></commentInRDBMS>
+<ownerDesignName>property_rental</ownerDesignName>
+<engineerTo>
+<item key="B3C16AC7-AC7F-4114-AE56-993464868073" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="owner_famname" id="CB7D3381-001D-86E2-B735-6CB05A70D8AA">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-24 13:32:02 UTC</createdTime>
+<ownerDesignName>property_rental</ownerDesignName>
+<engineerTo>
+<item key="B3C16AC7-AC7F-4114-AE56-993464868073" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="owner_address" id="F2D93392-6885-05E2-97ED-2E23E44E1BE6">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-24 13:32:22 UTC</createdTime>
+<commentInRDBMS><![CDATA[Address of property owner]]></commentInRDBMS>
+<ownerDesignName>property_rental</ownerDesignName>
+<engineerTo>
+<item key="B3C16AC7-AC7F-4114-AE56-993464868073" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>40</dataTypeSize>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F81CDBE5-BA84-DF05-2B1A-5BCCC6D22BE6" name="CUSTOMER PK">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-24 13:29:49 UTC</createdTime>
+<ownerDesignName>property_rental</ownerDesignName>
+<engineerTo>
+<item key="B3C16AC7-AC7F-4114-AE56-993464868073" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>6A12C4F3-8BB8-93FA-8EBD-0B4372003864</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

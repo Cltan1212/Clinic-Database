@@ -12,5 +12,19 @@
 <showGrid>false</showGrid>
 <diagramColor>-1</diagramColor>
 <display>false</display>
-<notation>1</notation>
+<notation>2</notation>
+<objectViews>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="9959EABB-678A-27F0-443B-5D1D1C4BD70F" otype="Entity" vid="DD82F629-CB79-34D4-1DC9-87B893B85E20">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="70" y="316" width="199" height="144"/>
+</OView>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="CB60890D-163E-30FF-2FF3-5EB3A7B4870C" otype="Entity" vid="7927BD37-2939-994B-D239-C3719A117B22">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="369" y="127" width="201" height="143"/>
+</OView>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="F4F68D9A-904A-FFEB-7314-05AA12916453" otype="Entity" vid="5206DFFB-AA20-55FD-615B-EBF5265043D0">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="80" y="128" width="199" height="135"/>
+</OView>
+</objectViews>
 </Diagram>

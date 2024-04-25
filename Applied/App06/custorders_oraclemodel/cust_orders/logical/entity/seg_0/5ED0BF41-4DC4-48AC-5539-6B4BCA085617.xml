@@ -26,8 +26,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>7</dataTypePrecision>
-<ownDataTypeParameters>,7,</ownDataTypeParameters>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,4,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="pcat_name" id="2DE87C40-9235-1508-21F3-6328A132F79B">
 <createdBy>chunlingtan</createdBy>
@@ -39,9 +39,9 @@
 </engineerTo>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT025</logicalDatatype>
-<dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -49,8 +49,9 @@
 <createdBy>chunlingtan</createdBy>
 <createdTime>2024-04-08 23:43:10 UTC</createdTime>
 <ownerDesignName>cust_orders</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>

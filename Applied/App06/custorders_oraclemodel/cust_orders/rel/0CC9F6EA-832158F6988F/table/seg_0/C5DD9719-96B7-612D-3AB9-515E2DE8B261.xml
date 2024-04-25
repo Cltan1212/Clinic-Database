@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C5DD9719-96B7-612D-3AB9-515E2DE8B261" name="PRODUCT">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-09 05:29:02 UTC</createdTime>
+<generatorID>EFBD768B-4B9F-5F86-29BF-9E0E592556C3</generatorID>
+<ownerDesignName>cust_orders</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="prod_no" id="BEAA6E76-2A85-BB80-2B40-B95EF968D46E">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-09 05:29:02 UTC</createdTime>
+<commentInRDBMS><![CDATA[is_used_to]]></commentInRDBMS>
+<generatorID>7440F916-11C7-D1C8-B405-709DE0E839C6</generatorID>
+<ownerDesignName>cust_orders</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<ownDataTypeParameters>,7,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="prod_desc" id="303EA9F2-FBBF-227D-6321-652365C47514">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-09 05:29:02 UTC</createdTime>
+<generatorID>2C474809-74EC-4104-D116-BAB0EB10DDD2</generatorID>
+<ownerDesignName>cust_orders</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="prod_unitprice" id="9221335C-39BC-C105-72AD-58CDC5AA224A">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-09 05:29:02 UTC</createdTime>
+<generatorID>34FB7FCC-F731-468D-8140-2CD567C94F85</generatorID>
+<ownerDesignName>cust_orders</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>7</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,7,2</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="prod_category" id="F5221ED9-DE21-7ADF-EE66-331CF9442509">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-09 05:29:02 UTC</createdTime>
+<generatorID>EAF1176C-60D1-73F3-C70E-94977BE620E2</generatorID>
+<ownerDesignName>cust_orders</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pcat_id" id="864800FF-39D4-2A98-63A9-9321D1F053E8">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-09 05:29:02 UTC</createdTime>
+<commentInRDBMS><![CDATA[product category id]]></commentInRDBMS>
+<generatorID>232CD986-1CEC-63F0-3632-B1086BA4CD2C</generatorID>
+<ownerDesignName>cust_orders</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6CF2500C-2DCD-7C94-2333-67EF4BC42BE7" referredColumn="204802C7-C4CF-4593-3AF4-C5784A2ADF8B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5F6963CC-3886-5CA5-451A-B38BAA62FA43" name="PRODUCT_PK">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-09 05:29:02 UTC</createdTime>
+<generatorID>DC33D9BC-CEFF-DC0B-FEF7-7154F98DB7AF</generatorID>
+<ownerDesignName>cust_orders</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BEAA6E76-2A85-BB80-2B40-B95EF968D46E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="41B1C961-F500-3F2E-93F7-250D47E9D6AD" name="prod_category">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-09 05:29:02 UTC</createdTime>
+<generatorID>04C65E4C-84F8-726F-2363-33B971C2A601</generatorID>
+<ownerDesignName>cust_orders</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="864800FF-39D4-2A98-63A9-9321D1F053E8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

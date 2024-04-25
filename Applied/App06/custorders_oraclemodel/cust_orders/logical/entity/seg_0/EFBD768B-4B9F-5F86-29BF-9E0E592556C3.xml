@@ -39,7 +39,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="prod_unitprice" id="34FB7FCC-F731-468D-8140-2CD567C94F85">
 <createdBy>chunlingtan</createdBy>
@@ -51,7 +52,9 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypePrecision>7</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,7,2</ownDataTypeParameters>
 </Attribute>
 <Attribute name="prod_category" id="EAF1176C-60D1-73F3-C70E-94977BE620E2">
 <createdBy>chunlingtan</createdBy>
@@ -63,7 +66,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="pcat_id" id="232CD986-1CEC-63F0-3632-B1086BA4CD2C">
 <createdBy>chunlingtan</createdBy>
@@ -78,8 +82,8 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>7</dataTypePrecision>
-<ownDataTypeParameters>,7,</ownDataTypeParameters>
+<dataTypePrecision>4</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
@@ -87,8 +91,9 @@
 <createdBy>chunlingtan</createdBy>
 <createdTime>2024-04-07 07:24:56 UTC</createdTime>
 <ownerDesignName>cust_orders</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
 <engineerTo>
-<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="true"/>
+<item key="0CC9F6EA-3AC7-6115-C41E-832158F6988F" value="false"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
