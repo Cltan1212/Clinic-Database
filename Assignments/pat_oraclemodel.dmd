@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="pat_oraclemodel" id="13CE34CB-0F29-C9FC-5497-7377FE2F505D" version="3.5">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-24 23:57:04 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>13CE34CB-0F29-C9FC-5497-7377FE2F505D</designId>
+</OSDM_Design>
