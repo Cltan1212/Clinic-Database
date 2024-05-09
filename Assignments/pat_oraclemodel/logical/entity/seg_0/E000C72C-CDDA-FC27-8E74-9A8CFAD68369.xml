@@ -1,0 +1,163 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E000C72C-CDDA-FC27-8E74-9A8CFAD68369" name="TRIP">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:29:01 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="trip_id" id="2F80BCE4-AEC2-E9AE-63A4-228B33D6CEA8">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:52:37 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vehicle_id" id="7E1A0CC8-FC80-A7EC-EE49-41011534A956">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:56:54 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="driver_id" id="9A3F18D5-7CBD-5677-CEDD-0FD653085132">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:54:17 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="language_code" id="A79D6C7A-B6CD-FBC0-7FD6-E9D739889D3C">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:56:43 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="off_olympic_id" id="A54C54BC-AD5D-C8F0-C51C-E48C13FDEBAF">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:57:03 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="trip_no_of_passenger" id="B804F939-1226-439A-3533-B9735C60D52F">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:17:32 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="trip_intended_pick_up_time" id="EF673011-E5CD-8F0D-D0D4-BE980960F960">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:17:53 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="trip_actual_pick_up_time" id="486E97FD-FC70-93C6-AC98-86ABB3D4F2A9">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:19:18 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="trip_intended_drop_off_time" id="DA76DD80-87CE-9634-FC0E-CFF42D742C03">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:19:36 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="trip_actual_drop_off_time" id="94D4BDF4-6957-23E2-CF1A-51B879E193FE">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:19:50 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="location_id" id="1DB02234-5107-8C04-C613-05E2C9782EE0">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:20:23 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="91D89232-CB0B-EF44-1BBC-1B974CDBB780" name="TRIP PK">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:54:31 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2F80BCE4-AEC2-E9AE-63A4-228B33D6CEA8</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

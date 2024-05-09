@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7D0FD2C6-C76C-DB32-BA41-D2E4893F2996" name="LOCATION">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:31:14 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="location_id" id="B03F6FF1-4B6A-3F4D-792A-8A9C3349F11D">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:59:53 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="location_name" id="7088CDE3-4D54-6249-ACDB-4DB6DBD1A9B0">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 02:00:01 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="location_type" id="8E070638-1EF9-9B3F-C590-DFE5B3A2472C">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 02:00:07 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="location_address" id="C2061AA7-8445-78B3-EFE6-27BA1AC40F97">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 02:00:12 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A0C99980-E31F-6B2A-AF65-C56195641CEA" name="LOCATION PK">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 02:00:00 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>B03F6FF1-4B6A-3F4D-792A-8A9C3349F11D</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,92 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="428D5CFE-6ACB-58C6-4C56-10471436E389" name="TRAINING">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:31:36 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="tr_code" id="5541D33A-9A34-36B0-9EF5-2A1BAF654686">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:58:31 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tr_name" id="D7244968-DAD8-A538-8ED5-528DF9CB07C6">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:58:35 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tr_desc" id="93EEAA88-54E2-94EA-F7A0-9F8B53C1CF6B">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:59:08 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tr_expi_prd" id="9B2876FC-77D2-A0C1-1C53-206F2A559A2A">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:59:14 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tr_dur" id="5059D3D0-E9A6-C4A9-FF99-E2D395095B78">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:59:25 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2E4A742C-7FAB-2055-19B7-E4651AEA3342" name="TRAINING PK">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:58:34 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5541D33A-9A34-36B0-9EF5-2A1BAF654686</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

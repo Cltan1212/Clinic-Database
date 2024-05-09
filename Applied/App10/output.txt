@@ -1,0 +1,245 @@
+SQL> SET LINESIZE 300
+SQL> --1
+SQL> select stuid,
+  2  stufname || ' ' || stulname as "full name",
+  3  studob
+  4  from uni.STUDENT natural join uni.enrolment
+  5  where upper(unitcode) = upper('FIT9132')
+  6  and studob =
+  7  (
+  8      select min(studob)
+  9      from uni.STUDENT natural join uni.enrolment
+  10      where upper(unitcode) = upper('FIT9132')
+  11  )
+  12  order by stuid;
+
+     STUID full name                                          STUDOB
+---------- ----------------------------------------- ---------------
+  14635701 Cord Yard                                       02-JUL-90
+  25828434 Cathrin Smullin                                 02-JUL-90
+
+SQL> --2
+SQL> select unitcode, ofsemester, count(stuid) as total
+  2  from uni.enrolment
+  3  where to_char(ofyear, 'yyyy') = 2019
+  4  group by unitcode, ofsemester
+  5  having count(stuid) =
+  6  (
+  7      select max(count(stuid))
+  8      from uni.enrolment
+  9      where to_char(ofyear, 'yyyy') = 2019
+  10      group by unitcode, ofsemester
+  11  )
+  12  order by unitcode, ofsemester;
+
+UNITCODE OFSEMESTER      TOTAL
+-------- ---------- ----------
+FIT9132           2         13
+
+SQL> --3
+SQL> select stufname || ' ' || stulname as "full name",
+  2  enrolmark
+  3  from uni.STUDENT natural join uni.enrolment
+  4  where upper(unitcode) = 'FIT3157' and ofsemester = 1
+  5  and to_char(ofyear,'yyyy') = 2020
+  6  and enrolmark >
+  7  (
+  8      select avg(enrolmark)
+  9      from uni.STUDENT natural join uni.enrolment
+  10      where upper(unitcode) = 'FIT3157' and ofsemester = 1 and to_char(ofyear,'yyyy') = 2020
+  11  )
+  12  order by enrolmark desc, "full name";
+
+full name                                  ENROLMARK
+----------------------------------------- ----------
+Starr Clapton                                     83
+Harv Wethered                                     82
+Aristotle Rolph                                   72
+Mattheus Kardos                                   71
+Billie Friedank                                   65
+
+SQL> --4
+SQL> select unitcode, unitname,
+  2  to_char(ofyear, 'yyyy') as year,
+  3  ofsemester, enrolmark,
+  4  case upper(enrolgrade)
+  5      when 'N' then 'Fail'
+  6      when 'P' then 'Pass'
+  7      when 'C' then 'Credit'
+  8      when 'D' then 'Distinction'
+  9      when 'HD' then 'High Distinction'
+  10  end as explained_grade
+  11  from uni.UNIT natural join uni.STUDENT natural join uni.ENROLMENT
+  12  where upper(stufname) = upper('Claudette') and upper(stulname) = upper('Serman')
+  13  order by year, ofsemester, unitcode;
+
+UNITCODE UNITNAME                                                                                             YEAR   OFSEMESTER  ENROLMARK EXPLAINED_GRADE 
+-------- ---------------------------------------------------------------------------------------------------- ------ ---------- ---------- ----------------
+FIT9132  Introduction to databases                                                                            2019            1         56 Pass            
+FIT9136  Algorithms and programming foundations in Python                                                     2019            1         16 Fail            
+FIT9136  Algorithms and programming foundations in Python                                                     2019            2         81 High Distinction
+FIT9137  Introduction to computer architecture and networks                                                   2019            2         77 Distinction     
+FIT5196  Data wrangling                                                                                       2020            1         64 Credit          
+
+SQL> --5
+SQL> select staffid, stafffname, stafflname, ofsemester,
+  2  count(clno) as "numberclasses",
+  3  CASE
+  4      when count(clno) > 2 then 'Overload'
+  5      when count(clno) = 2 then 'Correct load'
+  6      when count(clno) < 2 then 'Underload'
+  7  end as load
+  8  from uni.schedclass natural join uni.staff
+  9  where to_char(ofyear,'yyyy') = 2019
+  10  group by staffid, stafffname, stafflname, ofsemester
+  11  order by "numberclasses" desc, staffid, ofsemester;
+
+   STAFFID STAFFFNAME           STAFFLNAME           OFSEMESTER numberclasses LOAD        
+---------- -------------------- -------------------- ---------- ------------- ------------
+    419817 Windham              Ellard                        2             6 Overload    
+    412994 Gunar                Dutch                         1             2 Correct load
+    412994 Gunar                Dutch                         2             2 Correct load
+    415448 Sandro               Wethered                      1             2 Correct load
+    415448 Sandro               Wethered                      2             2 Correct load
+    418454 Lizabeth             Stubbings                     2             2 Correct load
+    419421 Trixy                Warner                        2             2 Correct load
+    434760 Xena                 Epine                         1             2 Correct load
+    434760 Xena                 Epine                         2             2 Correct load
+    436760 Tammi                Soane                         1             2 Correct load
+    436760 Tammi                Soane                         2             2 Correct load
+    439066 Kennie               Pickin                        2             2 Correct load
+    459186 Papageno             Gayton                        1             1 Underload   
+    459186 Papageno             Gayton                        2             1 Underload   
+    467165 Deina                MacGarrity                    1             1 Underload   
+    467165 Deina                MacGarrity                    2             1 Underload   
+    470313 Gunar                Dutch                         1             1 Underload   
+    470313 Gunar                Dutch                         2             1 Underload   
+    475342 Mikol                Kohrt                         2             1 Underload   
+    475912 Mycah                Preddle                       2             1 Underload   
+    485533 Worden               Abel                          2             1 Underload   
+    487823 Benny                Plunket                       1             1 Underload   
+    487823 Benny                Plunket                       2             1 Underload   
+    494975 Hildy                Edyson                        2             1 Underload   
+    497227 Ashleigh             O'Bruen                       2             1 Underload   
+    498160 Martino              Boram                         1             1 Underload   
+    498160 Martino              Boram                         2             1 Underload   
+
+SQL> --6
+SQL> --7
+SQL> /* Using outer join */
+SQL> select unitcode, unitname --, count(prerequnitcode)
+  2  from uni.unit natural left join uni.prereq
+  3  group by unitcode, unitname
+  4  having count(prerequnitcode) = 0
+  5  order by unitcode;
+
+UNITCODE UNITNAME                                                                                            
+-------- ----------------------------------------------------------------------------------------------------
+FIT1003  IT in organisations                                                                                 
+FIT1045  Algorithms and programming fundamentals in python                                                   
+FIT1050  Web fundamentals                                                                                    
+FIT9132  Introduction to databases                                                                           
+FIT9134  Computer architecture and operating systems                                                         
+FIT9136  Algorithms and programming foundations in Python                                                    
+FIT9137  Introduction to computer architecture and networks                                                  
+
+SQL> /* Using set operator MINUS */
+SQL> select unitcode, unitname from uni.unit
+  2  minus
+  3  select unitcode, unitname from uni.unit natural join uni.prereq
+  4  order by unitcode;
+
+UNITCODE UNITNAME                                                                                            
+-------- ----------------------------------------------------------------------------------------------------
+FIT1003  IT in organisations                                                                                 
+FIT1045  Algorithms and programming fundamentals in python                                                   
+FIT1050  Web fundamentals                                                                                    
+FIT9132  Introduction to databases                                                                           
+FIT9134  Computer architecture and operating systems                                                         
+FIT9136  Algorithms and programming foundations in Python                                                    
+FIT9137  Introduction to computer architecture and networks                                                  
+
+SQL> /* Using subquery */
+SQL> select unitcode, unitname from uni.unit
+  2  where unitcode not in
+  3  (
+  4      select unitcode from uni.prereq
+  5  )
+  6  order by unitcode;
+
+UNITCODE UNITNAME                                                                                            
+-------- ----------------------------------------------------------------------------------------------------
+FIT1003  IT in organisations                                                                                 
+FIT1045  Algorithms and programming fundamentals in python                                                   
+FIT1050  Web fundamentals                                                                                    
+FIT9132  Introduction to databases                                                                           
+FIT9134  Computer architecture and operating systems                                                         
+FIT9136  Algorithms and programming foundations in Python                                                    
+FIT9137  Introduction to computer architecture and networks                                                  
+
+SQL> --8
+SQL> --9
+SQL> --10
+SQL> --11
+SQL> -- select L as 'Lecture' from uni.prereq;
+SQL> (
+  2      select staffid,
+  3      stafffname || ' ' || stafflname as STAFFNAME,
+  4      'Lecture' as type,
+  5      count(clno),
+  6      sum(clduration) as TOTAL_HOURS,
+  7      lpad(to_char(sum(clduration) * 75.60, '$900.00'), 14, ' ') as WEEKLY_PAYMENT
+  8      from uni.schedclass natural join uni.staff
+  9      where upper(cltype) = 'L' and ofsemester = 1 and to_char(ofyear, 'yyyy') = 2020
+  10      group by staffid, stafffname || ' ' || stafflname, cltype
+  11  )
+  12
+  13  union
+  14
+  15  (
+  16      select staffid,
+  17      stafffname || ' ' || stafflname as STAFFNAME,
+  18      'Tutorial' as type,
+  19      count(clno),
+  20      sum(clduration) as TOTAL_HOURS,
+  21      lpad(to_char(sum(clduration) * 75.60, '$900.00'), 14, ' ') as WEEKLY_PAYMENT
+  22      from uni.schedclass natural join uni.staff
+  23      where upper(cltype) = 'T' and ofsemester = 1 and to_char(ofyear, 'yyyy') = 2020
+  24      group by staffid, stafffname || ' ' || stafflname, cltype
+  25  )
+  26
+  27  order by staffid, type;
+
+   STAFFID STAFFNAME                                 TYPE     COUNT(CLNO) TOTAL_HOURS WEEKLY_PAYMENT                                          
+---------- ----------------------------------------- -------- ----------- ----------- --------------------------------------------------------
+    412994 Gunar Dutch                               Lecture            1           2        $151.20                                          
+    412994 Gunar Dutch                               Tutorial           1           2        $151.20                                          
+    415448 Sandro Wethered                           Lecture            1           2        $151.20                                          
+    415448 Sandro Wethered                           Tutorial           1           2        $151.20                                          
+    418454 Lizabeth Stubbings                        Lecture            1           2        $151.20                                          
+    418454 Lizabeth Stubbings                        Tutorial           1           2        $151.20                                          
+    419421 Trixy Warner                              Lecture            1           2        $151.20                                          
+    419421 Trixy Warner                              Tutorial           1           2        $151.20                                          
+    419817 Windham Ellard                            Lecture            3           4        $302.40                                          
+    419817 Windham Ellard                            Tutorial           3           6        $453.60                                          
+    434760 Xena Epine                                Lecture            1           1         $75.60                                          
+    434760 Xena Epine                                Tutorial           1           2        $151.20                                          
+    436760 Tammi Soane                               Lecture            1           1         $75.60                                          
+    436760 Tammi Soane                               Tutorial           1           2        $151.20                                          
+    439066 Kennie Pickin                             Lecture            1           1         $75.60                                          
+    439066 Kennie Pickin                             Tutorial           1           2        $151.20                                          
+    459186 Papageno Gayton                           Tutorial           1           2        $151.20                                          
+    467165 Deina MacGarrity                          Tutorial           1           2        $151.20                                          
+    470313 Gunar Dutch                               Tutorial           1           2        $151.20                                          
+    475342 Mikol Kohrt                               Tutorial           1           2        $151.20                                          
+    475912 Mycah Preddle                             Tutorial           1           2        $151.20                                          
+    485533 Worden Abel                               Tutorial           1           2        $151.20                                          
+    487823 Benny Plunket                             Tutorial           1           2        $151.20                                          
+    494975 Hildy Edyson                              Tutorial           1           2        $151.20                                          
+    497227 Ashleigh O'Bruen                          Tutorial           1           2        $151.20                                          
+    498160 Martino Boram                             Tutorial           1           2        $151.20                                          
+
+SQL> --12
+SQL> --13
+SQL> spool off
+

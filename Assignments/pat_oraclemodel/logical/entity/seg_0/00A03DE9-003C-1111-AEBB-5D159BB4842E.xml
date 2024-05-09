@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="00A03DE9-003C-1111-AEBB-5D159BB4842E" name="NATIONAL_OLYMPIC_COMMITTEE">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:31:52 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="NOC_ioc_code" id="CB7B0F99-F564-AE0F-E27A-B23166905AF2">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:33:16 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NOC_country_name" id="74B85F76-EFA1-571F-3113-09C2D14B3195">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:48:51 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NOC_country_population" id="7CA497BA-B312-04AC-3CDD-39D34D5924BE">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:49:09 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2E10048A-2211-C604-4152-00C504E0F0B3" name="NATIONAL_OLYMPIC_COMMITTEE PK">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:33:21 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>CB7B0F99-F564-AE0F-E27A-B23166905AF2</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

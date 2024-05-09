@@ -1,0 +1,116 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="46121C7E-6095-428C-FBEE-B6732B0E4D1B" name="VEHICLE">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:28:16 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="vehicle_id" id="D8FC6BEB-1072-87DD-E9D7-EAB672755F65">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:50:17 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vehicle_registration_no" id="DB5F947F-9D18-CCD8-F7D7-9A79AC62AF30">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:50:33 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vehicle_make" id="21CDD905-D472-5FB6-9436-82EA549B67BC">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:50:43 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vehicle_model" id="CB12B8EE-16BD-E5FC-0AE6-C072870B0737">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:50:47 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vehicle_year" id="C9B6C4A2-411C-6B0C-77BB-197D30650C22">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:50:51 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vehicle_current_odometer" id="B42BB694-F569-FF54-E340-ECE436BD4960">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:50:55 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vehicle_seats_no" id="A686EEBD-9F99-85F5-1F7A-78625435C980">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:52:10 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="863F0CF3-E2E7-954C-B494-295CA1B7DB49" name="VEHICLE PK">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:50:28 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D8FC6BEB-1072-87DD-E9D7-EAB672755F65</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

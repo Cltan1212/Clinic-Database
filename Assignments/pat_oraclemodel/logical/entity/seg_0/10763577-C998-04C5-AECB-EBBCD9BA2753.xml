@@ -1,0 +1,68 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="10763577-C998-04C5-AECB-EBBCD9BA2753" name="DRIVER_TRAINING">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 00:31:28 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="driv_id" id="AE478840-E15D-6C8F-5D27-0764AFE7661E">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:57:54 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="tr_code" id="6EB1B3B9-F55A-97FF-F197-774B365DE63C">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:58:02 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="driv_tr_com_dat" id="C4545DF1-4A8F-61FD-EBD7-9C47B48F56EE">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:58:08 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="DBF5681A-D90F-7432-CD13-E98353A06A5D" name="DRIVER_TRAINING PK">
+<createdBy>chunlingtan</createdBy>
+<createdTime>2024-04-25 01:58:01 UTC</createdTime>
+<ownerDesignName>pat_oraclemodel</ownerDesignName>
+<engineerTo>
+<item key="C75F3F38-86C1-109E-EB47-B2F81AAEAE46" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>AE478840-E15D-6C8F-5D27-0764AFE7661E</attributeRef>
+<attributeRef>6EB1B3B9-F55A-97FF-F197-774B365DE63C</attributeRef>
+<attributeRef>C4545DF1-4A8F-61FD-EBD7-9C47B48F56EE</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
