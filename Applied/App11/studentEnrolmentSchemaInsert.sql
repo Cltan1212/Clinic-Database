@@ -1,0 +1,439 @@
+/*
+FIT3171 Applied 11
+studentEnrolmentSchemaInsert.sql
+
+Create and populate unit,student and enrolment tables
+Create audit_log table and sequence
+
+Databases Units
+Author: FIT Database Teaching Team
+License: Copyright © Monash University, unless otherwise stated. All Rights Reserved.
+COPYRIGHT WARNING
+Warning
+This material is protected by copyright. For use within Monash University only. NOT FOR RESALE.
+Do not remove this notice.
+
+*/
+
+SET ECHO ON;
+
+--creating tables
+
+DROP TABLE AUDIT_LOG CASCADE CONSTRAINTS;
+
+DROP TABLE ENROLMENT CASCADE CONSTRAINTS;
+
+DROP TABLE STUDENT CASCADE CONSTRAINTS;
+
+DROP TABLE UNIT CASCADE CONSTRAINTS;
+
+-- predefined type, no DDL - MDSYS.SDO_GEOMETRY
+
+-- predefined type, no DDL - XMLTYPE
+
+CREATE TABLE AUDIT_LOG (
+    AUDIT_NO NUMBER(6) NOT NULL,
+    AUDIT_DATE DATE NOT NULL,
+    AUDIT_USER VARCHAR2(30) NOT NULL,
+    AUDIT_STU_NBR NUMBER(8) NOT NULL,
+    AUDIT_UNIT_CODE CHAR(7) NOT NULL
+);
+
+COMMENT ON COLUMN AUDIT_LOG.AUDIT_NO IS
+    'audit number (unique for each audit';
+
+COMMENT ON COLUMN AUDIT_LOG.AUDIT_DATE IS
+    'Audit date';
+
+COMMENT ON COLUMN AUDIT_LOG.AUDIT_USER IS
+    'Audit oracle user';
+
+COMMENT ON COLUMN AUDIT_LOG.AUDIT_STU_NBR IS
+    'Student number that is deleted';
+
+COMMENT ON COLUMN AUDIT_LOG.AUDIT_UNIT_CODE IS
+    'Deleted unit code';
+
+ALTER TABLE AUDIT_LOG ADD CONSTRAINT AUDIT_LOG_PK PRIMARY KEY ( AUDIT_NO );
+
+CREATE TABLE ENROLMENT (
+    STU_NBR NUMBER(8) NOT NULL,
+    UNIT_CODE CHAR(7) NOT NULL,
+    ENROL_YEAR NUMBER(4) NOT NULL,
+    ENROL_SEMESTER CHAR(1) NOT NULL,
+    ENROL_MARK NUMBER(3),
+    ENROL_GRADE CHAR(2)
+);
+
+COMMENT ON COLUMN ENROLMENT.STU_NBR IS
+    'Student number';
+
+COMMENT ON COLUMN ENROLMENT.UNIT_CODE IS
+    'Unit code';
+
+COMMENT ON COLUMN ENROLMENT.ENROL_YEAR IS
+    'Enrolment year';
+
+COMMENT ON COLUMN ENROLMENT.ENROL_SEMESTER IS
+    'Enrolment semester';
+
+COMMENT ON COLUMN ENROLMENT.ENROL_MARK IS
+    'Enrolment mark (real)';
+
+COMMENT ON COLUMN ENROLMENT.ENROL_GRADE IS
+    'Enrolment grade (letter)';
+
+ALTER TABLE ENROLMENT ADD CONSTRAINT ENROLMENT_PK PRIMARY KEY ( STU_NBR, ENROL_YEAR, ENROL_SEMESTER, UNIT_CODE );
+
+CREATE TABLE STUDENT (
+    STU_NBR NUMBER(8) NOT NULL,
+    STU_LNAME VARCHAR2(50),
+    STU_FNAME VARCHAR2(50),
+    STU_DOB DATE NOT NULL,
+    STU_AVG_MARK NUMBER(5, 2)
+);
+
+COMMENT ON COLUMN STUDENT.STU_NBR IS
+    'Student number';
+
+COMMENT ON COLUMN STUDENT.STU_LNAME IS
+    'Student last name';
+
+COMMENT ON COLUMN STUDENT.STU_FNAME IS
+    'Student first name';
+
+COMMENT ON COLUMN STUDENT.STU_DOB IS
+    'Student date of birth';
+
+COMMENT ON COLUMN STUDENT.STU_AVG_MARK IS
+    'Student''s average mark';
+
+ALTER TABLE STUDENT ADD CONSTRAINT STUDENT_PK PRIMARY KEY ( STU_NBR );
+
+CREATE TABLE UNIT (
+    UNIT_CODE CHAR(7) NOT NULL,
+    UNIT_NAME VARCHAR2(50) NOT NULL,
+    UNIT_NO_STUDENT NUMBER(4) NOT NULL
+);
+
+COMMENT ON COLUMN UNIT.UNIT_CODE IS
+    'Unit code';
+
+COMMENT ON COLUMN UNIT.UNIT_NAME IS
+    'Unit name';
+
+COMMENT ON COLUMN UNIT.UNIT_NO_STUDENT IS
+    'Number of students enroled in the unit';
+
+ALTER TABLE UNIT ADD CONSTRAINT UNIT_PK PRIMARY KEY ( UNIT_CODE );
+
+ALTER TABLE UNIT ADD CONSTRAINT UNIT_NK UNIQUE ( UNIT_NAME );
+
+ALTER TABLE ENROLMENT ADD CONSTRAINT STUDENT_ENROLMENT FOREIGN KEY ( STU_NBR ) REFERENCES STUDENT ( STU_NBR );
+
+ALTER TABLE ENROLMENT ADD CONSTRAINT UNIT_ENROLMENT FOREIGN KEY ( UNIT_CODE ) REFERENCES UNIT ( UNIT_CODE );
+
+--Creating sequence for AUDIT_LOG table
+DROP SEQUENCE AUDIT_SEQ;
+
+CREATE SEQUENCE AUDIT_SEQ START WITH 1 INCREMENT BY 1;
+
+--Inserting data
+INSERT INTO STUDENT VALUES (
+    11111121,
+    'Bloggs',
+    'Fred',
+    TO_DATE('01-FEB-91', 'DD-MON-YY'),
+    46
+);
+
+INSERT INTO STUDENT VALUES (
+    11111122,
+    'Nice',
+    NULL,
+    TO_DATE('15-SEP-92', 'DD-MON-YY'),
+    66
+);
+
+INSERT INTO STUDENT VALUES (
+    11111123,
+    'Wheat',
+    'Wendy',
+    TO_DATE('23-OCT-89', 'DD-MON-YY'),
+    75
+);
+
+INSERT INTO STUDENT VALUES (
+    11111124,
+    'Sheen',
+    'Cindy',
+    TO_DATE('12-MAR-89', 'DD-MON-YY'),
+    75.5
+);
+
+INSERT INTO STUDENT VALUES (
+    11111125,
+    NULL,
+    'Andrew',
+    TO_DATE('11-AUG-90', 'DD-MON-YY'),
+    64.25
+);
+
+INSERT INTO UNIT VALUES (
+    'FIT9131',
+    'Programming foundations',
+    5
+);
+
+INSERT INTO UNIT VALUES (
+    'FIT9132',
+    'Introduction to databases',
+    5
+);
+
+INSERT INTO UNIT VALUES (
+    'FIT9134',
+    'Computer architecture and operating systems',
+    5
+);
+
+INSERT INTO UNIT VALUES (
+    'FIT9135',
+    'Data communications',
+    5
+);
+
+INSERT INTO UNIT VALUES (
+    'FIT5057',
+    'Project management',
+    5
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111121',
+    'FIT9131',
+    2020,
+    '1',
+    35,
+    'N '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111122',
+    'FIT9131',
+    2020,
+    '1',
+    62,
+    'C '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111123',
+    'FIT9131',
+    2020,
+    '1',
+    76,
+    'D '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111124',
+    'FIT9131',
+    2020,
+    '1',
+    85,
+    'HD'
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111125',
+    'FIT9131',
+    2020,
+    '1',
+    64,
+    'C '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111121',
+    'FIT9132',
+    2020,
+    '1',
+    55,
+    'P '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111122',
+    'FIT9132',
+    2020,
+    '1',
+    67,
+    'C '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111123',
+    'FIT9132',
+    2020,
+    '1',
+    62,
+    'C '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111124',
+    'FIT9132',
+    2020,
+    '1',
+    45,
+    'N '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111125',
+    'FIT9132',
+    2020,
+    '1',
+    55,
+    'P '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111121',
+    'FIT9135',
+    2020,
+    '2',
+    46,
+    'N '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111122',
+    'FIT9135',
+    2020,
+    '2',
+    70,
+    'D '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111123',
+    'FIT9135',
+    2020,
+    '2',
+    83,
+    'HD'
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111124',
+    'FIT9135',
+    2020,
+    '2',
+    92,
+    'HD'
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111125',
+    'FIT9135',
+    2020,
+    '2',
+    66,
+    'C '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111121',
+    'FIT9134',
+    2020,
+    '2',
+    48,
+    'N '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111122',
+    'FIT9134',
+    2020,
+    '2',
+    65,
+    'C '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111123',
+    'FIT9134',
+    2020,
+    '2',
+    79,
+    'D '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111124',
+    'FIT9134',
+    2020,
+    '2',
+    80,
+    'HD'
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111125',
+    'FIT9134',
+    2020,
+    '2',
+    72,
+    'D '
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111121',
+    'FIT5057',
+    2021,
+    '1',
+    NULL,
+    NULL
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111122',
+    'FIT5057',
+    2021,
+    '1',
+    NULL,
+    NULL
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111123',
+    'FIT5057',
+    2021,
+    '1',
+    NULL,
+    NULL
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111124',
+    'FIT5057',
+    2021,
+    '1',
+    NULL,
+    NULL
+);
+
+INSERT INTO ENROLMENT VALUES (
+    '11111125',
+    'FIT5057',
+    2021,
+    '1',
+    NULL,
+    NULL
+);
+
+COMMIT;
+
+SET ECHO OFF;
