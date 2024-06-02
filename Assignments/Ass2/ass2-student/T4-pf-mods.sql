@@ -107,7 +107,8 @@ SELECT visit_id, visit_date_time, visit_total_cost,
  )
 FROM visit
 WHERE 
-    visit_total_cost IS NOT NULL; -- completed visit?
+    visit_total_cost IS NOT NULL 
+    AND visit_date_time <= SYSDATE; 
 
 DESC visit_payment
 
