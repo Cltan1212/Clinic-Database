@@ -130,5 +130,3 @@ ALTER TABLE visit_service
 ALTER TABLE visit_service 
     ADD CONSTRAINT visit_service_fk FOREIGN KEY ( service_code ) 
         REFERENCES service ( service_code );
-
-COMMIT;
