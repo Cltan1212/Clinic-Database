@@ -6,16 +6,8 @@
 
 /* Comments for your marker:
 
-
-
-
-*/
-
---------------------------------------
--- INSERT INTO visit
---------------------------------------
--- The insert data as belows: --
-
+Belows are the description of data inserted into the database.
+-==== visit ====-
 -- 1. At least 5 different animal 
     -- Animal 1: visit_id 1, visit_id 2
     -- Animal 2: visit_id 3, visit_id 7
@@ -42,6 +34,37 @@
 -- 5. At least 8 completed visits and 2 incomplete visits
     -- completed visits: visit_id 2, visit_id 3, visit_id 4, visit_id 5, visit_id 7, visit_id 8, visit_id 9, visit_id 10
     -- incompleted visits: visit_id 1, visit_id 6
+
+-==== visit service ====-
+-- At least 4 visits that require more than one service in a single visit
+-- visit_id 1: S001, S002
+-- visit_id 2: S009
+-- visit_id 3: S001, S005, S009
+-- visit_id 4: S001
+-- visit_id 5: S006
+-- visit_id 6: S001, S006, S010
+-- visit_id 7: S003
+-- visit_id 8: S006, S009, S020
+-- visit_id 9: S017, S018
+-- visit_id 10: S006
+
+-==== visit drug ====-
+-- At least 2 visits with more than one drug prescribed in a single visit
+-- visit 1: 102, 119
+-- visit_id 2: 104
+-- visit_id 3: 119, 105, 104
+-- visit_id 4: 119
+-- visit_id 5: 106
+-- visit_id 6: 119, 106, 110
+-- visit_id 7: 103
+-- visit_id 8: 106, 104, 120
+-- visit_id 9: 117, 118
+-- visit_id 10: 106
+*/
+
+--------------------------------------
+-- INSERT INTO visit
+--------------------------------------
     
 INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id)
 VALUES            (1, TO_DATE('16-JAN-2024 2:00PM', 'DD-MON-YY HH:MiAM'),   30, 'Dermatology',          2.5,    200.99,   1,  1002, 4, NULL);
@@ -76,18 +99,6 @@ VALUES            (10, TO_DATE('20-JUN-2024 11:30AM', 'DD-MON-YY HH:MiAM'), 50, 
 --------------------------------------
 --INSERT INTO visit_service
 --------------------------------------
-
--- At least 4 visits that require more than one service in a single visit
--- visit_id 1: S001, S002
--- visit_id 2: S009
--- visit_id 3: S001, S005, S009
--- visit_id 4: S001
--- visit_id 5: S006
--- visit_id 6: S001, S006, S010
--- visit_id 7: S003
--- visit_id 8: S006, S009, S020
--- visit_id 9: S017, S018
--- visit_id 10: S006
 INSERT INTO visit_service ( visit_id, service_code, visit_service_linecost )
 VALUES ( 1, 'S001', 55 );
 
@@ -146,17 +157,6 @@ VALUES ( 10, 'S006', 75 );
 --------------------------------------
 --INSERT INTO visit_drug
 --------------------------------------
--- At least 2 visits with more than one drug prescribed in a single visit
--- visit 1: 102, 119
--- visit_id 2: 104
--- visit_id 3: 119, 105, 104
--- visit_id 4: 119
--- visit_id 5: 106
--- visit_id 6: 119, 106, 110
--- visit_id 7: 103
--- visit_id 8: 106, 104, 120
--- visit_id 9: 117, 118
--- visit_id 10: 106
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
 VALUES                 ( 1,        102,       '0.5ml',         'once',               3,                      99.99               );
 
