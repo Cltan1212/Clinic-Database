@@ -13,7 +13,6 @@
 --(a)
 --Write your trigger statement,
 --finish it with a slash(/) followed by a blank line
-SET serveroutput ON;
 
 -- trigger to check the service cost
 CREATE OR REPLACE TRIGGER check_service_cost
