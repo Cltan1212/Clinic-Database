@@ -6,16 +6,23 @@
 
 
 /* Comments for your marker:
+-===== a =====-
+- 1 Before adding the column
+- 2 Add new column: total_service_non_std_cost 
+- 3 Update the column (initialise)
+- 4 Desc and shows changes
 
-
-
+-===== b =====-
+- 1 table created: visit_payment, payment_method
+    where payment_method is a lookup table (consists of historical, card and cash)
+- 2 insert value from the current table
+- 3 Desc and shows changes
 
 */
 
 /*(a)*/
-ALTER TABLE service DROP COLUMN total_service_non_std_cost;
 
--- Initial
+-- 1
 SELECT 
     visit_id, service_code, visit_service_linecost, service_std_cost
 FROM 
@@ -24,12 +31,13 @@ FROM
 ORDER BY 
     visit_id, service_code;
 
--- add new column
+-- 2
+ALTER TABLE service DROP COLUMN total_service_non_std_cost;
 ALTER TABLE service ADD total_service_non_std_cost NUMBER(3) DEFAULT 0 NOT NULL;
 
 COMMENT ON COLUMN service.total_service_non_std_cost IS 'Total number of service that is not charged at the standard cost';
 
--- update the column (initialise)
+-- 3
 UPDATE service s
 SET total_service_non_std_cost = (
     SELECT 
@@ -41,10 +49,9 @@ SET total_service_non_std_cost = (
         AND vs.visit_service_linecost <> s.service_std_cost
 );
 
--- Show the table structure
+-- 4
 DESC service;
 
--- After changes
 SELECT 
     service_code, total_service_non_std_cost
 FROM 
@@ -57,8 +64,7 @@ COMMIT;
 
 /*(b)*/
 
--- create payment table: visit_payment and payment_method
--- payment_method is a lookup table
+-- 1
 DROP TABLE visit_payment    CASCADE CONSTRAINTS PURGE;
 DROP TABLE payment_method   CASCADE CONSTRAINTS PURGE;
 
@@ -109,7 +115,7 @@ VALUES ( 'Card' );
 INSERT INTO payment_method ( payment_name )
 VALUES ( 'Historical' );
 
--- INSERT current data that there is a visit_total_cost 
+-- 2 
 INSERT INTO visit_payment (visit_id, payment_date_time, payment_amount, payment_method_id)
 SELECT 
     visit_id, 
@@ -128,6 +134,7 @@ WHERE
     visit_total_cost IS NOT NULL 
     AND visit_date_time <= SYSDATE; 
 
+-- 3
 DESC visit_payment
 
 SELECT
