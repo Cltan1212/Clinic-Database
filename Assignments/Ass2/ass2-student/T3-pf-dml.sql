@@ -6,9 +6,25 @@
 
 /* Comments for your marker:
 
+-===== a =====-
+Drop and create sequence
 
+-===== b =====-
+-- 1 Insert the visit to the database
+-- 2 Insert the visit service to the database 
+-- 3 Shows changes
 
+-===== c =====-
+-- 1 Update the visit service with the ear infection treatment
+-- 2 Record the visit drug 
+-- 3 Update the visit with the visit service info and visit drug info
+-- 4 Schedule the next visit
+-- 5 Schedult the visit service with next visit
+-- 6 Shows changes
 
+-===== d =====-
+-- 1 Delete the visit service (delete child first)
+-- 2 Delete the visit
 */
 
 /*(a)*/
@@ -16,7 +32,7 @@ DROP SEQUENCE visit_seq;
 CREATE SEQUENCE visit_seq START WITH 100 INCREMENT BY 10;
 
 /*(b)*/
--- schedule visit
+-- 1
 INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id )
 VALUES (
     visit_seq.NEXTVAL,
@@ -58,7 +74,7 @@ VALUES (
     NULL
 );
 
--- general consultation
+-- 2
 INSERT INTO visit_service ( visit_id, service_code, visit_service_linecost ) 
 VALUES (visit_seq.currval, 
         (
@@ -78,7 +94,7 @@ VALUES (visit_seq.currval,
                 UPPER(service_desc) = UPPER('General Consultation')
         ));
 
--- show changes
+-- 3
 SELECT * FROM visit;
 SELECT * FROM visit_service;
 
@@ -86,7 +102,7 @@ COMMIT;
 
 /*(c)*/
 
--- only record ear infection
+-- 1
 UPDATE visit_service 
 SET 
     service_code = (
@@ -128,7 +144,7 @@ WHERE
                     )
     );
 
--- 1 bottle of Clotrimazole 
+-- 2
 INSERT INTO visit_drug ( visit_id, drug_id, visit_drug_dose, visit_drug_qtysupplied, visit_drug_linecost )
 VALUES ( 
     (
@@ -172,7 +188,7 @@ VALUES (
     )
 );
 
--- update information for visit
+-- 3
 UPDATE visit 
 SET 
     visit_total_cost = (
@@ -214,7 +230,7 @@ WHERE
     );
 
 
--- schedule next visit
+-- 4
 INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id )
 VALUES (
     visit_seq.NEXTVAL,
@@ -329,7 +345,7 @@ VALUES (
     )
 );
 
--- next visit service
+-- 5
 INSERT INTO visit_service ( visit_id, service_code, visit_service_linecost )
 VALUES ( 
     visit_seq.CURRVAL, 
@@ -351,6 +367,7 @@ VALUES (
     )
 );
 
+-- 6
 SELECT * FROM visit;
 SELECT * FROM visit_service;
 SELECT * FROM visit_drug;
@@ -359,6 +376,7 @@ COMMIT;
 
 /*(d)*/
 
+-- 1
 DELETE FROM visit_service 
 WHERE 
     visit_id = (
@@ -383,6 +401,7 @@ WHERE
             )
     );
 
+-- 2
 DELETE FROM visit 
 WHERE 
     visit_id = (
@@ -407,6 +426,7 @@ WHERE
             )
     );
 
+-- 3
 SELECT * FROM visit;
 SELECT * FROM visit_service;
 SELECT * FROM visit_drug;
