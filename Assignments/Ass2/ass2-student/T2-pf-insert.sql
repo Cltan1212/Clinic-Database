@@ -43,282 +43,36 @@
     -- completed visits: visit_id 2, visit_id 3, visit_id 4, visit_id 5, visit_id 7, visit_id 8, visit_id 9, visit_id 10
     -- incompleted visits: visit_id 1, visit_id 6
     
-INSERT INTO visit (
-    visit_id,
-    visit_date_time,
-    visit_length,
-    visit_notes,
-    visit_weight,
-    visit_total_cost,
-    animal_id,
-    vet_id,
-    clinic_id,
-    from_visit_id
-)
-VALUES (
-    1,
-    to_date('16-JAN-2024 2:00PM', 'DD-MON-YY HH:MiAM'),
-    30,
-    'Dermatology',
-    2.5,
-    200.99,
-    1,
-    1002,
-    4,
-    NULL
-);
+INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id)
+VALUES            (1, TO_DATE('16-JAN-2024 2:00PM', 'DD-MON-YY HH:MiAM'),   30, 'Dermatology',          2.5,    200.99,   1,  1002, 4, NULL);
 
--- 2. 
-INSERT INTO visit 
-(
-    visit_id,
-    visit_date_time,
-    visit_length,
-    visit_notes,
-    visit_weight,
-    visit_total_cost,
-    animal_id,
-    vet_id,
-    clinic_id,
-    from_visit_id
-)
+INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id)
+VALUES            (2, TO_DATE('12-MAR-2024 10:30AM', 'DD-MON-YY HH:MiAM'),  50, 'Dermatology',          2.5,    150,      1,  1002, 4, 1);
 
-VALUES (
-    2,
-    to_date('12-MAR-2024 10:30AM', 'DD-MON-YY HH:MiAM'),
-    50,
-    'Dermatology',
-    2.5,
-    150,
-    1,
-    1002,
-    4,
-    1
-);
+INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id)
+VALUES            (3, TO_DATE('12-FEB-2024 10:30AM', 'DD-MON-YY HH:MiAM'),  50, 'Emergency',            NULL,   391,      2,  1003, 2, NULL);
 
--- 3. 
-INSERT INTO visit 
-(
-    visit_id,
-    visit_date_time,
-    visit_length,
-    visit_notes,
-    visit_weight,
-    visit_total_cost,
-    animal_id,
-    vet_id,
-    clinic_id,
-    from_visit_id
-)
+INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id)
+VALUES            (4, TO_DATE('12-FEB-2024 10:30AM', 'DD-MON-YY HH:MiAM'),  50, 'Emergency',            NULL,   5,        3,  1003, 2, NULL);
 
-VALUES (
-    3,
-    to_date('12-FEB-2024 10:30AM', 'DD-MON-YY HH:MiAM'),
-    50,
-    'Emergency',
-    NULL,
-    391,
-    2,
-    1003,
-    2,
-    NULL
-);
+INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id)
+VALUES            (5, TO_DATE('12-FEB-2024 10:30AM', 'DD-MON-YY HH:MiAM'),  50, 'Dental Cleaning',      NULL,   90,       3,  1004, 3, NULL);
 
--- 4. 
-INSERT INTO visit 
-(
-    visit_id,
-    visit_date_time,
-    visit_length,
-    visit_notes,
-    visit_weight,
-    visit_total_cost,
-    animal_id,
-    vet_id,
-    clinic_id,
-    from_visit_id
-)
+INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id)
+VALUES            (6, TO_DATE('30-MAR-2024 10:30AM', 'DD-MON-YY HH:MiAM'),  50, 'Dental Cleaning',      NULL,   268.50,   8,  1004, 3, NULL);
 
-VALUES (
-    4,
-    to_date('12-FEB-2024 10:30AM', 'DD-MON-YY HH:MiAM'),
-    50,
-    'Emergency',
-    NULL,
-    5,
-    3,
-    1003,
-    2,
-    NULL
-);
+INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id)
+VALUES            (7, TO_DATE('05-MAY-2024 10:30AM', 'DD-MON-YY HH:MiAM'),  50, 'Emergency',            5.5,    120,      2,  1003, 2, NULL);
 
--- 5.
-INSERT INTO visit 
-(
-    visit_id,
-    visit_date_time,
-    visit_length,
-    visit_notes,
-    visit_weight,
-    visit_total_cost,
-    animal_id,
-    vet_id,
-    clinic_id,
-    from_visit_id
-)
+INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id)
+VALUES            (8, TO_DATE('20-MAY-2024 3:30PM', 'DD-MON-YY HH:MiAM'),   50, 'Dental Cleaning',      2.5,    410,      5,  1004, 3, 6);
 
-VALUES (
-    5,
-    to_date('12-FEB-2024 10:30AM', 'DD-MON-YY HH:MiAM'),
-    50,
-    'Dental Cleaning',
-    NULL,
-    90,
-    3,
-    1004,
-    3,
-    NULL
-);
+INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id)
+VALUES            (9, TO_DATE('3-APR-2024 12:00PM', 'DD-MON-YY HH:MiAM'),   50, 'General Consultation', NULL,   266.50,   4,  1005, 2, NULL);
 
--- 6.
-INSERT INTO visit 
-(
-    visit_id,
-    visit_date_time,
-    visit_length,
-    visit_notes,
-    visit_weight,
-    visit_total_cost,
-    animal_id,
-    vet_id,
-    clinic_id,
-    from_visit_id
-)
+INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id)
+VALUES            (10, TO_DATE('20-JUN-2024 11:30AM', 'DD-MON-YY HH:MiAM'), 50, 'Dental Cleaning',      NULL,   85,       5,  1004, 3, NULL);
 
-VALUES (
-    6,
-    to_date('30-MAR-2024 10:30AM', 'DD-MON-YY HH:MiAM'),
-    50,
-    'Dental Cleaning',
-    NULL,
-    268.50,
-    8,
-    1004,
-    3,
-    NULL
-);
-
--- 7.
-INSERT INTO visit 
-(
-    visit_id,
-    visit_date_time,
-    visit_length,
-    visit_notes,
-    visit_weight,
-    visit_total_cost,
-    animal_id,
-    vet_id,
-    clinic_id,
-    from_visit_id
-)
-
-VALUES (
-    7,
-    to_date('05-MAY-2024 10:30AM', 'DD-MON-YY HH:MiAM'),
-    50,
-    'Emergency',
-    5.5,
-    120,
-    2,
-    1003,
-    2,
-    NULL
-);
-
--- 8.
-INSERT INTO visit 
-(
-    visit_id,
-    visit_date_time,
-    visit_length,
-    visit_notes,
-    visit_weight,
-    visit_total_cost,
-    animal_id,
-    vet_id,
-    clinic_id,
-    from_visit_id
-)
-
-VALUES (
-    8,
-    to_date('20-MAY-2024 3:30PM', 'DD-MON-YY HH:MiAM'),
-    50,
-    'Dental Cleaning',
-    2.5,
-    410,
-    5,
-    1004,
-    3,
-    6
-);
-
--- 9.
-INSERT INTO visit 
-(
-    visit_id,
-    visit_date_time,
-    visit_length,
-    visit_notes,
-    visit_weight,
-    visit_total_cost,
-    animal_id,
-    vet_id,
-    clinic_id,
-    from_visit_id
-)
-
-VALUES (
-    9,
-    to_date('3-APR-2024 12:00PM', 'DD-MON-YY HH:MiAM'),
-    50,
-    'General Consultation',
-    NULL,
-    266.50,
-    4,
-    1005,
-    2,
-    NULL
-);
-
--- 10.
-INSERT INTO visit 
-(
-    visit_id,
-    visit_date_time,
-    visit_length,
-    visit_notes,
-    visit_weight,
-    visit_total_cost,
-    animal_id,
-    vet_id,
-    clinic_id,
-    from_visit_id
-)
-
-VALUES (
-    10,
-    to_date('20-JUN-2024 11:30AM', 'DD-MON-YY HH:MiAM'),
-    50,
-    'Dental Cleaning',
-    NULL,
-    85,
-    5,
-    1004,
-    3,
-    NULL
-);
 --------------------------------------
 --INSERT INTO visit_service
 --------------------------------------
@@ -404,57 +158,57 @@ VALUES ( 10, 'S006', 75 );
 -- visit_id 9: 117, 118
 -- visit_id 10: 106
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 1,        102,       2,               5,                    3,                      99.99               );
+VALUES                 ( 1,        102,       '0.5ml',         'once',               3,                      99.99               );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 1,        119,       2,               5,                    3,                      1                   );
+VALUES                 ( 1,        119,       '0.2mg per kg',  'twice',              3,                      1                   );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 2,        104,       5,               NULL,                 7,                      70                  );
+VALUES                 ( 2,        104,       '0.1mg per kg',   NULL,                7,                      70                  );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 3,        104,       3,               NULL,                 7,                      70                  );
+VALUES                 ( 3,        104,       '0.1mg per kg',   NULL,                7,                      70                  );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 3,        105,       1,               5,                    1,                      50                  );
+VALUES                 ( 3,        105,       '0.3mg per kg',  'twice',              1,                      50                  );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 3,        119,       2,               4,                    3,                      1                   );
+VALUES                 ( 3,        119,       '300mg',         'once',               3,                      1                   );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 4,        119,       2,               1,                    3,                      5                   );
+VALUES                 ( 4,        119,       '0.2mg per kg',  'once',               3,                      5                   );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 5,        106,       1,               2,                    7,                      10                  );
+VALUES                 ( 5,        106,       '0.1mg per kg',   NULL,                7,                      10                  );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 6,        119,       3,               NULL,                 5,                      13.5                );
+VALUES                 ( 6,        119,       '0.2mg per kg',   NULL,                5,                      13.5                );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 6,        106,       2,               5,                    7,                      10                  );
+VALUES                 ( 6,        106,       '0.1mg per kg',   NULL,                7,                      10                  );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 6,        110,       1,               NULL,                 6,                      30                  );
+VALUES                 ( 6,        110,       '0.2mg per kg',   NULL,                6,                      30                  );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 7,        103,       1,              5,                     1,                      50                  );
+VALUES                 ( 7,        103,       'none',           NULL,                1,                      50                  );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 8,        106,       2,               8,                    7,                      10                  );
+VALUES                 ( 8,        106,       '0.1mg per kg',   NULL,                7,                      10                  );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 8,        104,       1,               NULL,                 7,                      70                  );
+VALUES                 ( 8,        104,       '0.1mg per kg',   NULL,                7,                      70                  );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 8,        120,       5,               NULL,                 7,                      80                  );
+VALUES                 ( 8,        120,       '0.2mg per kg',   NULL,                7,                      80                  );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 9,        117,       1,               4,                    9,                      1.5                 );
+VALUES                 ( 9,        117,       '500mg',         'once',               9,                      1.5                 );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 9,        118,       1,               5,                    2,                      40                  );
+VALUES                 ( 9,        118,       '300mg',         'once',               2,                      40                  );
 
 INSERT INTO visit_drug ( visit_id, drug_id,   visit_drug_dose, visit_drug_frequency, visit_drug_qtysupplied, visit_drug_linecost )
-VALUES                 ( 10,        106,      2,               1,                    7,                      10                 );
+VALUES                 ( 10,       106,       '0.1mg per kg',   NULL,                7,                      10                 );
 
 COMMIT;
