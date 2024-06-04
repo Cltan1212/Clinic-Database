@@ -46,9 +46,8 @@ COMMENT ON COLUMN visit.from_visit_id       IS 'The previous visit''s identifier
 
 -- alter table: constraint (pk and check constraint)
 ALTER TABLE visit ADD CONSTRAINT visit_pk           PRIMARY KEY ( visit_id );
-ALTER TABLE visit ADD CONSTRAINT visit_un           UNIQUE ( visit_date_time,
-                                                             animal_id,
-                                                             vet_id );
+ALTER TABLE visit ADD CONSTRAINT visit_vet_un       UNIQUE ( visit_date_time, vet_id );
+ALTER TABLE visit ADD CONSTRAINT visit_ani_un       UNIQUE ( visit_date_time, animal_id );                                                             
 ALTER TABLE visit ADD CONSTRAINT ck_visit_length    CHECK (visit_length BETWEEN 30 AND 90);
 
 -- ================= VISIT_DRUG ==================== --
