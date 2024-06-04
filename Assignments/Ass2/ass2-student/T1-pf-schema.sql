@@ -7,9 +7,31 @@
 
 /* Comments for your marker:
 
+TABLE CREATED:
+- VISIT
+- VISIT_DRUG
+- VISIT_SERVICE
 
+CONSTRAINTS:
+- VISIT
+    - VISIT_PK:         primary key for visit table
+    - VISIT_VET_UN:     unique key for visit table (visit_date_time, vet_id)
+    - VISIT_ANI_UN:     unique key for visit table (visit_date_time, animal_id)
+    - CK_VISIT_LENGTH:  check constraint for visit_length
+    - VISIT_ANIMAL_FK:  foreign key to animal table 
+    - VISIT_VET_FK:     foreign key to vet table 
+    - VISIT_CLINIC_FK:  foreign key to clinic table
+    - VISIT_FROM_FK:    foreign key to visit table (previous visit)
 
+- VISIT_DRUG
+    - VISIT_DRUG_PK:    primary key for visit_drug table 
+    - VISIT_VD_FK:      foreign key for visit table
+    - VISIT_DRUG_FK:    foreign key for drug table
 
+- VISIT_SERVICE
+    - VISIT_SERVICE_PK: primary key for visit_service table
+    - VISIT_VS_FK:      foreign key for visit table
+    - VISIT_SERVICE_FK: foreign key for service table
 */
 
 -- Task 1 Add Create table statements for the Missing TABLES below.
