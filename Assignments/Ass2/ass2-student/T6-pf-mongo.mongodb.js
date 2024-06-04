@@ -1,12 +1,16 @@
 // *****PLEASE ENTER YOUR DETAILS BELOW*****
 // T6-pf-mongo.mongodb.js
 
-// Student ID:
-// Student Name:
-// Unit Code:
-// Applied Class No:
+// Student ID: 33402973
+// Student Name: Tan Chun Ling
+// Unit Code: FIT3171
+// Applied Class No: Applied 03
 
 // Comments for your marker:
+// (b) The data is execute from the task 6 sql and modified as the format stated in the 
+//     briefing.
+// (c) Check the specialisation is in the list stated.
+// (d) Update the new head vet, insert a new vet in the vet list and increase the count of the total vet
 
 // ===================================================================================
 // Do not modify or remove any of the comments below (items marked with //)

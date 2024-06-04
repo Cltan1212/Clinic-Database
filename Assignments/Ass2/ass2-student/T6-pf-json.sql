@@ -7,8 +7,13 @@
 
 /* Comments for your marker:
 
+1. The JSON object joins with the following table:
+- clinic: for id, name, address and phone 
+- vet v: for every vet in that clinic (id and name)
+- vet hv: for the head vet information (id and name)
+- soecialisation: for every vet (spec_description)
 
-
+2. Using Group By to count the number of vet in the particular clinic.
 
 */
 
