@@ -29,11 +29,125 @@ db.clinic.drop();
 
 // Create collection and insert documents
 db.clinic.insertMany([
-    {"_id":1,"name":"East Melbourne Veterinary Center","address":"47 Blackburn Road, Burwood East VIC 3151","phone":"0398123456","head_vet":{"id":1001,"name":"Emily Tanner"},"no_of_vets":2,"vets":[{"id":1001,"name":"Emily Tanner","specialisation":"General Practice"},{"id":1006,"name":"Sophie Grant","specialisation":"Dermatology"}]},
-    {"_id":2,"name":"Northern Suburbs Animal Hospital","address":"78 High St, Thornbury VIC 3071","phone":"0390215478","head_vet":{"id":1003,"name":"John "},"no_of_vets":2,"vets":[{"id":1003,"name":"John ","specialisation":"Emergency Medicine"},{"id":1005,"name":"Owen Murphy","specialisation":"N/A"}]},
-    {"_id":3,"name":"Bayside Veterinary Clinic","address":"32 Bay Rd, Sandringham VIC 3191","phone":"0398765433","head_vet":{"id":1004,"name":"Anna Kowalski"},"no_of_vets":2,"vets":[{"id":1004,"name":"Anna Kowalski","specialisation":"Dentistry"},{"id":1008,"name":" Watson","specialisation":"N/A"}]},
-    {"_id":4,"name":"Glen Iris Vet Clinic","address":"1501 High St, Glen Iris VIC 3146","phone":"0398123458","head_vet":{"id":1002,"name":"Lucas Bennet"},"no_of_vets":2,"vets":[{"id":1002,"name":"Lucas Bennet","specialisation":"Dermatology"},{"id":1011,"name":"Liam Foster","specialisation":"Cardiology"}]},
-    {"_id":5,"name":"Brighton East Pet Care","address":"123 Thomas St, Brighton East VIC 3187","phone":"0398765412","head_vet":{"id":1007,"name":"Jessica Lee"},"no_of_vets":3,"vets":[{"id":1007,"name":"Jessica Lee","specialisation":"Behavioral Medicine"},{"id":1010,"name":"Michael Clarkson","specialisation":"Cardiology"},{"id":1009,"name":"Sarah Morris","specialisation":"N/A"}]}
+    {
+        "_id":1,
+        "name":"East Melbourne Veterinary Center",
+        "address":"47 Blackburn Road, Burwood East VIC 3151",
+        "phone":"0398123456",
+        "head_vet":{
+            "id":1001,
+            "name":"Emily Tanner"
+        },
+        "no_of_vets":2,
+        "vets":[
+            {
+                "id":1001,
+                "name":"Emily Tanner",
+                "specialisation":"General Practice"
+            },
+            {
+                "id":1006,
+                "name":"Sophie Grant",
+                "specialisation":"Dermatology"
+            }
+        ]
+    },
+    {
+        "_id":2,
+        "name":"Northern Suburbs Animal Hospital",
+        "address":"78 High St, Thornbury VIC 3071",
+        "phone":"0390215478",
+        "head_vet":{
+            "id":1003,
+            "name":"John "
+        },
+        "no_of_vets":2,
+        "vets":
+        [
+            {
+                "id":1003,
+                "name":"John ",
+                "specialisation":"Emergency Medicine"
+            },
+            {
+                "id":1005,
+                "name":"Owen Murphy",
+                "specialisation":"N/A"
+            }
+        ]
+    },
+    {
+        "_id":3,
+        "name":"Bayside Veterinary Clinic",
+        "address":"32 Bay Rd, Sandringham VIC 3191",
+        "phone":"0398765433",
+        "head_vet":{
+            "id":1004,
+            "name":"Anna Kowalski"
+        },
+        "no_of_vets":2,
+        "vets":[
+            {
+                "id":1004,
+                "name":"Anna Kowalski",
+                "specialisation":"Dentistry"
+            },
+            {
+                "id":1008,
+                "name":" Watson",
+                "specialisation":"N/A"
+            }
+        ]
+    },
+    {
+        "_id":4,
+        "name":"Glen Iris Vet Clinic",
+        "address":"1501 High St, Glen Iris VIC 3146",
+        "phone":"0398123458",
+        "head_vet":{
+            "id":1002,
+            "name":"Lucas Bennet"
+        },
+        "no_of_vets":2,
+        "vets":[
+            {
+                "id":1002,"name":"Lucas Bennet",
+                "specialisation":"Dermatology"
+            },
+            {
+                "id":1011,
+                "name":"Liam Foster",
+                "specialisation":"Cardiology"
+            }
+        ]
+    },
+    {
+        "_id":5,
+        "name":"Brighton East Pet Care",
+        "address":"123 Thomas St, Brighton East VIC 3187",
+        "phone":"0398765412",
+        "head_vet":{
+            "id":1007,
+            "name":"Jessica Lee"
+        },"no_of_vets":3,
+        "vets":[
+            {
+                "id":1007,
+                "name":"Jessica Lee",
+                "specialisation":"Behavioral Medicine"
+            },
+            {
+                "id":1010,
+                "name":"Michael Clarkson",
+                "specialisation":"Cardiology"
+            },
+            {
+                "id":1009,
+                "name":"Sarah Morris",
+                "specialisation":"N/A"
+            }
+        ]
+    }
 ]);
 
 
@@ -82,6 +196,9 @@ db.clinic.updateOne(
                 "id": 1020,
                 "name": "Sarah Wilkinson"
             }
+        },
+        "$inc": {
+            "no_of_vets": 1
         }
     }
 );
