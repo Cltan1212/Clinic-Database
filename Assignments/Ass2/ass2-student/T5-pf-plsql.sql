@@ -5,8 +5,21 @@
 --Student Name:
 
 /* Comments for your marker:
+-===== a =====-
+- 1 Create the trigger for service
+    - Before because we need to check the cost of before insert and update 
+- 2 Test harness
+    - a Insert with a valid line cost
+    - b Insert with a invalid line cost (> 1.1)
+    - c Update with a valid line cost 
+    - d Update with a invalid line cost (< 0.9)
+    - e Delete visit service
 
-
+-===== b =====-
+- 1 Create the procedure for inserting follow up visit 
+- 2 Test harness
+    - a Insert with a valid visit
+    - b Insert with a invalid visit (invalid date)
 */
 
 
@@ -14,7 +27,7 @@
 --Write your trigger statement,
 --finish it with a slash(/) followed by a blank line
 
--- trigger to check the service cost
+-- 1
 CREATE OR REPLACE TRIGGER check_service_cost
 BEFORE INSERT OR UPDATE ON visit_service
 FOR EACH ROW
@@ -23,7 +36,7 @@ DECLARE
     v_min_cost          NUMBER(6,2);
     v_max_cost          NUMBER(6,2);
 BEGIN
-    -- Retrieve the standard cost of the visit_service if not deleting
+    -- Retrieve the standard cost 
     SELECT service_std_cost INTO v_standard_cost
     FROM service
     WHERE service_code = :NEW.service_code;
@@ -39,11 +52,11 @@ BEGIN
 END;
 /
 
--- INSERT with valid
+-- 2a
 -- before value
 SELECT * FROM visit WHERE visit_id = 1;
 
--- during
+-- execute the procedure - insert with valid visit service
 BEGIN
     INSERT INTO visit_service (visit_id, service_code, visit_service_linecost)
     VALUES (1, 'S003', 72.00);
@@ -53,11 +66,11 @@ END;
 -- after value
 SELECT * FROM visit WHERE visit_id = 1;
 
--- INSERT with invalid
+-- 2b
 -- before value
 SELECT * FROM visit WHERE visit_id = 1;
 
--- during
+-- execute the procedure - insert with valid visit service
 BEGIN
     INSERT INTO visit_service (visit_id, service_code, visit_service_linecost)
     VALUES (1, 'S003', 80.00);
@@ -67,11 +80,11 @@ END;
 -- after value
 SELECT * FROM visit WHERE visit_id = 1;
 
--- UPDATE with valid
+-- 2c
 -- before value
 SELECT * FROM visit WHERE visit_id = 1;
 
--- Test trigger - update 
+-- execute the procedure - update with valid visit service
 BEGIN
     UPDATE visit_service 
     SET visit_service_linecost = 74.00
@@ -79,14 +92,14 @@ BEGIN
 END;
 /
 
--- UPDATE with invalid
+-- 2d
 -- before value
 SELECT * FROM visit WHERE visit_id = 1;
 
--- Test trigger - update 
+-- execute the procedure - update with invalid visit service
 BEGIN
     UPDATE visit_service 
-    SET visit_service_linecost = 80.00
+    SET visit_service_linecost = 60.00
     WHERE visit_id = 1 and service_code = 'S003';
 END;
 /
@@ -94,11 +107,11 @@ END;
 -- after value
 SELECT * FROM visit WHERE visit_id = 1;
 
--- DELETE
+-- 2e
 -- before value
 SELECT * FROM visit WHERE visit_id = 1;
 
--- Test trigger - insert 
+-- execute the procedure - delete visit service
 BEGIN
     DELETE FROM
         visit_service
@@ -112,6 +125,7 @@ SELECT * FROM visit WHERE visit_id = 1;
 
 --(b)
 -- Complete the procedure below
+-- 1
 CREATE OR REPLACE PROCEDURE prc_followup_visit (
     p_prevvisit_id      IN NUMBER,
     p_newvisit_datetime IN DATE,
@@ -177,14 +191,14 @@ END prc_followup_visit;
 /
 
 -- Write Test Harness for (b)
--- valid data
+-- 2a 
 -- before value
 SELECT 
     * 
 FROM
     visit;
 
--- insert valid data
+-- execute the procedure: with valid data
 DECLARE
     v_output VARCHAR2(100);
 BEGIN
@@ -205,14 +219,14 @@ FROM
     visit;
 
 
--- invalid data - with invalid date (will not update)
+-- 2b
 -- before value
 SELECT 
     * 
 FROM
     visit;
 
--- insert 
+-- execute the procedure: with invalid data (invalid date)
 DECLARE
     v_output VARCHAR2(100);
 BEGIN
