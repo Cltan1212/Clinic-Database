@@ -20,7 +20,7 @@ CREATE SEQUENCE visit_seq START WITH 100 INCREMENT BY 10;
 INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id )
 VALUES (
     visit_seq.NEXTVAL,
-    to_date('19-MAY-2024 2:00PM', 'DD-MON-YY HH:MiAM'),
+    TO_DATE('19-MAY-2024 2:00PM', 'DD-MON-YY HH:MiAM'),
     30,
     NULL,
     NULL,
@@ -30,7 +30,7 @@ VALUES (
         FROM 
             service 
         WHERE 
-            service_code = 'S001' 
+            UPPER(service_code) = 'S001' 
     ),
     (
         SELECT 
@@ -52,7 +52,7 @@ VALUES (
             vet
         WHERE
             UPPER(vet_givenname) = UPPER('Anna') AND 
-            UPPER(vet_familyname) = UPPER('KOWALSKI')
+            UPPER(vet_familyname) = 'KOWALSKI'
     ),
     3,
     NULL
@@ -60,16 +60,29 @@ VALUES (
 
 -- general consultation
 INSERT INTO visit_service ( visit_id, service_code, visit_service_linecost ) 
-VALUES (visit_seq.currval, 'S001', (
-        SELECT
-            service_std_cost
-        FROM 
-            service 
-        WHERE 
-            service_code = 'S001' 
-    ));
+VALUES (visit_seq.currval, 
+        (
+            SELECT
+                service_code
+            FROM 
+                service 
+            WHERE 
+                UPPER(service_desc) = UPPER('General Consultation')
+        ), 
+        (
+            SELECT
+                service_std_cost
+            FROM 
+                service 
+            WHERE 
+                UPPER(service_desc) = UPPER('General Consultation')
+        ));
 
--- COMMIT;
+-- show changes
+SELECT * FROM visit;
+SELECT * FROM visit_service;
+
+COMMIT;
 
 /*(c)*/
 
@@ -95,15 +108,50 @@ SET
 WHERE 
     visit_id = (
                 SELECT 
-                    MAX(visit_id)
-                FROM
-                    visit
+                    visit_id
+                FROM 
+                    visit 
+                WHERE 
+                    animal_id = (
+                        SELECT 
+                            animal_id 
+                        FROM
+                            animal
+                            NATURAL JOIN owner 
+                            NATURAL JOIN animal_type
+                        WHERE
+                            visit_date_time = TO_DATE('19-MAY-2024 2:00PM', 'DD-MON-YY HH:MiAM') AND
+                            animal_born = TO_DATE('01/6/2018', 'dd/mm/yyyy') AND
+                            UPPER(owner_givenname) = UPPER('Jack') AND
+                            UPPER(owner_familyname) = UPPER('JONES') AND 
+                            UPPER(atype_description) = UPPER('Rabbit')
+                    )
     );
 
 -- 1 bottle of Clotrimazole 
 INSERT INTO visit_drug ( visit_id, drug_id, visit_drug_dose, visit_drug_qtysupplied, visit_drug_linecost )
 VALUES ( 
-    visit_seq.currval, 
+    (
+        SELECT 
+            visit_id
+        FROM 
+            visit 
+        WHERE 
+            animal_id = (
+                SELECT 
+                    animal_id 
+                FROM
+                    animal
+                    NATURAL JOIN owner 
+                    NATURAL JOIN animal_type
+                WHERE
+                    visit_date_time = TO_DATE('19-MAY-2024 2:00PM', 'DD-MON-YY HH:MiAM') AND
+                    animal_born = TO_DATE('01/6/2018', 'dd/mm/yyyy') AND
+                    UPPER(owner_givenname) = UPPER('Jack') AND
+                    UPPER(owner_familyname) = UPPER('JONES') AND 
+                    UPPER(atype_description) = UPPER('Rabbit')
+            )
+    ), 
     (
         SELECT 
             drug_id 
@@ -145,10 +193,25 @@ SET
 WHERE 
     visit_id = (
                 SELECT 
-                    MAX(visit_id)
-                FROM
-                    visit
-            );
+                    visit_id
+                FROM 
+                    visit 
+                WHERE 
+                    animal_id = (
+                        SELECT 
+                            animal_id 
+                        FROM
+                            animal
+                            NATURAL JOIN owner 
+                            NATURAL JOIN animal_type
+                        WHERE
+                            visit_date_time = TO_DATE('19-MAY-2024 2:00PM', 'DD-MON-YY HH:MiAM') AND
+                            animal_born = TO_DATE('01/6/2018', 'dd/mm/yyyy') AND
+                            UPPER(owner_givenname) = UPPER('Jack') AND
+                            UPPER(owner_familyname) = UPPER('JONES') AND 
+                            UPPER(atype_description) = UPPER('Rabbit')
+                    )
+    );
 
 
 -- schedule next visit
@@ -162,11 +225,26 @@ VALUES (
             visit
         WHERE 
             visit_id = (
-                SELECT 
-                    MAX(visit_id)
-                FROM
-                    visit
-            )
+                        SELECT 
+                            visit_id
+                        FROM 
+                            visit 
+                        WHERE 
+                            animal_id = (
+                                SELECT 
+                                    animal_id 
+                                FROM
+                                    animal
+                                    NATURAL JOIN owner 
+                                    NATURAL JOIN animal_type
+                                WHERE
+                                    visit_date_time = TO_DATE('19-MAY-2024 2:00PM', 'DD-MON-YY HH:MiAM') AND
+                                    animal_born = TO_DATE('01/6/2018', 'dd/mm/yyyy') AND
+                                    UPPER(owner_givenname) = UPPER('Jack') AND
+                                    UPPER(owner_familyname) = UPPER('JONES') AND 
+                                    UPPER(atype_description) = UPPER('Rabbit')
+                            )
+    )
     ),
     30,
     NULL,
@@ -209,24 +287,52 @@ VALUES (
         WHERE 
             visit_id = (
                 SELECT 
-                    MAX(visit_id)
-                FROM
-                    visit
-            )
-    
+                    max(visit_id)
+                FROM 
+                    visit 
+                WHERE 
+                    animal_id = (
+                        SELECT 
+                            animal_id 
+                        FROM
+                            animal
+                            NATURAL JOIN owner 
+                            NATURAL JOIN animal_type
+                        WHERE
+                            animal_born = TO_DATE('01/6/2018', 'dd/mm/yyyy') AND
+                            UPPER(owner_givenname) = UPPER('Jack') AND
+                            UPPER(owner_familyname) = UPPER('JONES') AND 
+                            UPPER(atype_description) = UPPER('Rabbit')
+                    )
+        )
     ),
     (
         SELECT 
-            MAX(visit_id)
-        FROM
-            visit
+            visit_id
+        FROM 
+            visit 
+        WHERE 
+            animal_id = (
+                SELECT 
+                    animal_id 
+                FROM
+                    animal
+                    NATURAL JOIN owner 
+                    NATURAL JOIN animal_type
+                WHERE
+                    visit_date_time = TO_DATE('19-MAY-2024 2:00PM', 'DD-MON-YY HH:MiAM') AND
+                    animal_born = TO_DATE('01/6/2018', 'dd/mm/yyyy') AND
+                    UPPER(owner_givenname) = UPPER('Jack') AND
+                    UPPER(owner_familyname) = UPPER('JONES') AND 
+                    UPPER(atype_description) = UPPER('Rabbit')
+            )
     )
 );
 
 -- next visit service
 INSERT INTO visit_service ( visit_id, service_code, visit_service_linecost )
 VALUES ( 
-    visit_seq.currval, 
+    visit_seq.CURRVAL, 
     (
         SELECT
             service_code
@@ -245,7 +351,11 @@ VALUES (
     )
 );
 
--- COMMIT;
+SELECT * FROM visit;
+SELECT * FROM visit_service;
+SELECT * FROM visit_drug;
+
+COMMIT;
 
 /*(d)*/
 
@@ -253,7 +363,7 @@ DELETE FROM visit_service
 WHERE 
     visit_id = (
         SELECT 
-            max(visit_id)
+            visit_id
         FROM 
             visit 
         WHERE 
@@ -265,6 +375,7 @@ WHERE
                     NATURAL JOIN owner 
                     NATURAL JOIN animal_type
                 WHERE
+                    visit_date_time = TO_DATE(TO_DATE('19-MAY-2024 2:00PM', 'DD-MON-YY HH:MiAM')  + 7 || ' 2:00PM' , 'DD-MON-YY HH:MiAM') AND
                     animal_born = TO_DATE('01/6/2018', 'dd/mm/yyyy') AND
                     UPPER(owner_givenname) = UPPER('Jack') AND
                     UPPER(owner_familyname) = UPPER('JONES') AND 
@@ -276,7 +387,7 @@ DELETE FROM visit
 WHERE 
     visit_id = (
         SELECT 
-            max(visit_id)
+            visit_id
         FROM 
             visit 
         WHERE 
@@ -288,12 +399,17 @@ WHERE
                     NATURAL JOIN owner 
                     NATURAL JOIN animal_type
                 WHERE
+                    visit_date_time = TO_DATE(TO_DATE('19-MAY-2024 2:00PM', 'DD-MON-YY HH:MiAM')  + 7 || ' 2:00PM' , 'DD-MON-YY HH:MiAM') AND
                     animal_born = TO_DATE('01/6/2018', 'dd/mm/yyyy') AND
                     UPPER(owner_givenname) = UPPER('Jack') AND
                     UPPER(owner_familyname) = UPPER('JONES') AND 
                     UPPER(atype_description) = UPPER('Rabbit')
             )
     );
+
+SELECT * FROM visit;
+SELECT * FROM visit_service;
+SELECT * FROM visit_drug;
 
 
 COMMIT;
