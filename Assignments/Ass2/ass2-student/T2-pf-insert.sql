@@ -76,10 +76,10 @@ INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_
 VALUES            (3, TO_DATE('12-FEB-2024 10:30AM', 'DD-MON-YY HH:MiAM'),  50, 'Emergency',            NULL,   391,      2,  1003, 2, NULL);
 
 INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id)
-VALUES            (4, TO_DATE('12-FEB-2024 10:30AM', 'DD-MON-YY HH:MiAM'),  50, 'Emergency',            NULL,   5,        3,  1003, 2, NULL);
+VALUES            (4, TO_DATE('12-FEB-2024 2:30PM', 'DD-MON-YY HH:MiAM'),  50, 'Emergency',            NULL,   5,        3,  1003, 2, NULL);
 
 INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id)
-VALUES            (5, TO_DATE('12-FEB-2024 10:30AM', 'DD-MON-YY HH:MiAM'),  50, 'Dental Cleaning',      NULL,   90,       3,  1004, 3, NULL);
+VALUES            (5, TO_DATE('14-FEB-2024 10:30AM', 'DD-MON-YY HH:MiAM'),  50, 'Dental Cleaning',      NULL,   90,       3,  1004, 3, NULL);
 
 INSERT INTO visit ( visit_id, visit_date_time, visit_length, visit_notes, visit_weight, visit_total_cost, animal_id, vet_id, clinic_id, from_visit_id)
 VALUES            (6, TO_DATE('30-MAR-2024 10:30AM', 'DD-MON-YY HH:MiAM'),  50, 'Dental Cleaning',      NULL,   268.50,   8,  1004, 3, NULL);
