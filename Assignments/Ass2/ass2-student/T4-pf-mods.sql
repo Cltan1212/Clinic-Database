@@ -32,7 +32,6 @@ ORDER BY
     visit_id, service_code;
 
 -- 2
-ALTER TABLE service DROP COLUMN total_service_non_std_cost;
 ALTER TABLE service ADD total_service_non_std_cost NUMBER(3) DEFAULT 0 NOT NULL;
 
 COMMENT ON COLUMN service.total_service_non_std_cost IS 'Total number of service that is not charged at the standard cost';
