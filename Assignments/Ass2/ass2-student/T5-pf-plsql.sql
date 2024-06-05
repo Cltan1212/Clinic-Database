@@ -36,16 +36,13 @@ DECLARE
     v_min_cost          NUMBER(6,2);
     v_max_cost          NUMBER(6,2);
 BEGIN
-    -- Retrieve the standard cost 
     SELECT service_std_cost INTO v_standard_cost
     FROM service
     WHERE service_code = :NEW.service_code;
 
-    -- Calculate the min and max allowable cost
     v_min_cost := v_standard_cost * 0.90;
     v_max_cost := v_standard_cost * 1.10;
 
-    -- Check if the visit service line cost is within the allowed range
     IF :NEW.visit_service_linecost < v_min_cost OR :NEW.visit_service_linecost > v_max_cost THEN
         RAISE_APPLICATION_ERROR(-20001, 'Visit service line cost must be within 10% of the standard cost.');
     END IF;
@@ -150,19 +147,16 @@ BEGIN
             RETURN;
         END;
 
-    -- validate the visit_date_time
     IF p_newvisit_datetime IS NULL OR p_newvisit_datetime <= v_visit_date_time THEN
         p_output := 'Invalid date provided';
         RETURN;
     END IF;
 
-    -- default service
     SELECT  service_code, service_std_cost 
     INTO    v_service_code, v_service_cost
     FROM    service
     WHERE   UPPER(service_desc) = UPPER('General Consultation');
 
-    -- insert visit
     INSERT INTO 
         visit (visit_id, visit_date_time, visit_length, animal_id, vet_id, clinic_id, from_visit_id)
     VALUES (
@@ -175,13 +169,11 @@ BEGIN
         p_prevvisit_id
     ); 
 
-    -- insert visit_service
     INSERT INTO
         visit_service (visit_id, service_code, visit_service_linecost)
     VALUES
         (visit_seq.CURRVAL, v_service_code, v_service_cost);
 
-    -- Set the output message
     p_output := 'Follow-up visit created successfully with ID: ' || visit_seq.CURRVAL;
 
 EXCEPTION
